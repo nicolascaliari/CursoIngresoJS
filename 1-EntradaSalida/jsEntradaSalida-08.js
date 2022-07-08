@@ -7,9 +7,15 @@ function SacarResto()
 {
 	let numeroUno;
 	let numeroDos;
+	let resultado;
 	
-	numeroUno = document.getElementById('txtIdNumeroUno').value 
-	numeroDos = document.getElementById('txtIdNumeroDos').value
+	numeroUno = document.getElementById('txtIdNumeroDividendo').value; 
+	numeroDos = document.getElementById('txtIdNumeroDivisor').value;
+	numeroUno  = parseInt(numeroUno);
+	numeroDos = parseInt(numeroDos);
 
-	alert(`numeroUno/numeroDos ${numeroUno%numeroDos}`)
+	resultado = numeroUno%numeroDos;
+	alert(resultado)
+
+	
 }

@@ -9,8 +9,10 @@ function sumar()
 
 	numeroUno = document.getElementById('txtIdNumeroUno').value
 	numeroDos = document.getElementById('txtIdNumeroDos').value
+	numeroUno = parseInt(numeroUno);
+	numeroDos = parseInt(numeroDos)
 
-alert ( parseInt(numeroUno) + parseInt(numeroDos))
+alert ( numeroUno + numeroDos)
 
 }
 

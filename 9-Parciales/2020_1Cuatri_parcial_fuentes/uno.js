@@ -1,3 +1,34 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Realizar el algoritmo que permita ingresar 5 paises:
 del continente (validar entre america , asia , europa ,africa y oceania)
 el nombre del país,
@@ -12,95 +43,198 @@ e) la temperatura mínima ingresada, y nombre del pais que registro esa temperat
 */
 
 
+// function mostrar () {
+// 	let continente;
+// 	let pais;
+// 	let cantidadHabitantes;
+// 	let temperatura;
+// 	let i;
+// 	let flag;
+// 	let menosHabitantes;
+// 	let nombreMenosHabitantes;
+// 	let promedio;
+// 	let temperarutaMinima;
+// 	let nombreTemperaturaMinima;
 
 
-function mostrar()
-{
-	let continente;
-	let pais;
-	let cantidadHabitantes;
-	let temperatura;
-	let i;
-	let flag;
-	let promedio;
-	let temperaturaMinima = 51;
-	let paisMenosTemperatura;
-
-	flag = true;
-
-	let cantidadPaisMenosHabitantes;
-	let nombrePaisMenosHabitantes;
-	let temperaturasPares = 0;
-	let cantidadAmerica = 0;
-	let acumuladorPaisAmerica = 0;
+// 	flag = true;
 
 
-	for(i=0 ; i<2 ; i++) {
+// 	let contadorTemperaturaPar = 0;
+// 	let contadorAmericaMenosCero = 0;
+// 	let contadorPaises = 0;
+// 	let acumuladorPaises = 0;
 
-	continente = prompt("Ingrese un continente");
-	while(continente!="asia" && continente!="america" && continente!="europa") {
-		continente = prompt("ERROR. reingrese un continente");
-	}
+// 	for(i = 0 ; i < 2 ; i++){
 
-	pais = prompt("Ingrese un pais")
+// 		continente = prompt("Ingrese el continente america, asia, europa ").toLowerCase();
+// 		while(continente!="america" && continente!="asia" && continente!="europa")
+// 		{
+// 			continente = prompt("ERROR, Ingrese el continente america, asia, europa ").toLowerCase();
+// 		}
 
-	cantidadHabitantes = prompt("Ingrese la cantidad de habitantes 1-2000");
-	cantidadHabitantes = parseInt(cantidadHabitantes);
-	while(cantidadHabitantes < 1 || cantidadHabitantes > 2000){
-		cantidadHabitantes = prompt("ERROR, reingrese la cantidad de habitantes 1-2000");
-		cantidadHabitantes = parseInt(cantidadHabitantes);
-	}
+// 		pais = prompt("Ingrese un pais ");
 
-	temperatura = prompt("Ingrese la temperatura del territorio -50/50");
-	temperatura = parseInt(temperatura);
-	while(temperatura < -50 || temperatura > 50) {
-		temperatura = prompt("ERROR, reingrese la temperatura del territorio -50/50");
-		temperatura = parseInt(temperatura);
-	}
+// 		cantidadHabitantes = prompt("Ingrese cantidad de habitantes en millones 1-2000 ")
+// 		cantidadHabitantes = parseInt(cantidadHabitantes);
+// 		while(cantidadHabitantes < 1 || cantidadHabitantes > 2000)
+// 		{
 
-	if( temperatura%2 == 0) {
-		temperaturasPares++;
-	}
+// 			cantidadHabitantes = prompt("ERROR, Ingrese cantidad de habitantes en millones 1-2000 ")
+// 			cantidadHabitantes = parseInt(cantidadHabitantes);
+// 		}
+
+// 		temperatura = prompt("Ingrese la temperatura minima que se registra -50 y 50 ");
+// 		temperatura = parseInt(temperatura);
+// 		while(temperatura < -50 || temperatura > 50)
+// 		{
+// 			temperatura = prompt("ERROR, Ingrese la temperatura minima que se registra -50 y 50 ");
+// 			temperatura = parseInt(temperatura);
+// 		}
+
+// 		if(temperatura%2 == 0){
+// 			contadorTemperaturaPar++;
+// 		}
+
+		
+// 		if(flag == true)
+// 		{
+// 			menosHabitantes = cantidadHabitantes;
+// 			nombreMenosHabitantes = pais;
+// 			temperarutaMinima = temperatura;
+// 			nombreTemperaturaMinima = pais;
+// 			flag = false;
+// 		}
+// 		if(cantidadHabitantes < menosHabitantes)
+// 		{
+// 			menosHabitantes = cantidadHabitantes;
+// 			nombreMenosHabitantes = pais;
+// 		}
+// 		if (temperatura < temperarutaMinima){
+// 			temperarutaMinima = temperatura;
+// 			nombreTemperaturaMinima = pais;
+// 		}
+
+// 		if(continente == "america" && temperatura < 0){
+// 			contadorAmericaMenosCero++;
+// 		}
+
+// 		contadorPaises++;
+// 		acumuladorPaises+= cantidadHabitantes;
+		
+// 	}
+// 	promedio = acumuladorPaises / contadorPaises;
 
 
-	if(flag == true) {
-		cantidadPaisMenosHabitantes = cantidadHabitantes;
-		nombrePaisMenosHabitantes = pais;
-		flag = false;
-	}
+// 	document.write(`<br> La cantidad de temperaturas pares : ${contadorTemperaturaPar}`);
+// 	document.write(`<br> El nombre del pais con menos habitantes: ${nombreMenosHabitantes}`);
+// 	document.write(`<br>la cantidad de paises de america que tienen menos de 0 grados: ${contadorAmericaMenosCero}`);
+// 	document.write(`<br>el promedio de habitantes entre los paises ingresados: ${promedio.toFixed(2)}`);
+// 	document.write(`<br>la temperatura mínima ingresada, y nombre del pais que registro esa temperatura ${nombreTemperaturaMinima} con temperatura de ${temperarutaMinima} `);
+// }
 
-	if(cantidadPaisMenosHabitantes > cantidadHabitantes) {
-		nombrePaisMenosHabitantes = pais;
-		cantidadPaisMenosHabitantes = cantidadHabitantes;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function mostrar()
+// {
+// 	let continente;
+// 	let pais;
+// 	let cantidadHabitantes;
+// 	let temperatura;
+// 	let i;
+// 	let flag;
+// 	let promedio;
+// 	let temperaturaMinima = 51;
+// 	let paisMenosTemperatura;
+
+// 	flag = true;
+
+// 	let cantidadPaisMenosHabitantes;
+// 	let nombrePaisMenosHabitantes;
+// 	let temperaturasPares = 0;
+// 	let cantidadAmerica = 0;
+// 	let acumuladorPaisAmerica = 0;
+
+
+// 	for(i=0 ; i<2 ; i++) {
+
+// 	continente = prompt("Ingrese un continente");
+// 	while(continente!="asia" && continente!="america" && continente!="europa") {
+// 		continente = prompt("ERROR. reingrese un continente");
+// 	}
+
+// 	pais = prompt("Ingrese un pais")
+
+// 	cantidadHabitantes = prompt("Ingrese la cantidad de habitantes 1-2000");
+// 	cantidadHabitantes = parseInt(cantidadHabitantes);
+// 	while(cantidadHabitantes < 1 || cantidadHabitantes > 2000){
+// 		cantidadHabitantes = prompt("ERROR, reingrese la cantidad de habitantes 1-2000");
+// 		cantidadHabitantes = parseInt(cantidadHabitantes);
+// 	}
+
+// 	temperatura = prompt("Ingrese la temperatura del territorio -50/50");
+// 	temperatura = parseInt(temperatura);
+// 	while(temperatura < -50 || temperatura > 50) {
+// 		temperatura = prompt("ERROR, reingrese la temperatura del territorio -50/50");
+// 		temperatura = parseInt(temperatura);
+// 	}
+
+// 	if( temperatura%2 == 0) {
+// 		temperaturasPares++;
+// 	}
+
+
+// 	if(flag == true) {
+// 		cantidadPaisMenosHabitantes = cantidadHabitantes;
+// 		nombrePaisMenosHabitantes = pais;
+// 		flag = false;
+// 	}
+
+// 	if(cantidadPaisMenosHabitantes > cantidadHabitantes) {
+// 		nombrePaisMenosHabitantes = pais;
+// 		cantidadPaisMenosHabitantes = cantidadHabitantes;
 		
 
-	}
+// 	}
 
-	if(continente == "america" && temperatura < 0){
-		acumuladorPaisAmerica++;
-	}
+// 	if(continente == "america" && temperatura < 0){
+// 		acumuladorPaisAmerica++;
+// 	}
 	
-	if(flag == true) {
-		temperaturaMinima = temperatura;
-		paisMenosTemperatura = pais;
-		flag = false;
-	}else {
-		if(temperatura < temperaturaMinima){
-			temperaturaMinima = temperatura;
-			paisMenosTemperatura = pais;
-		}
-	}
+// 	if(flag == true) {
+// 		temperaturaMinima = temperatura;
+// 		paisMenosTemperatura = pais;
+// 		flag = false;
+// 	}else {
+// 		if(temperatura < temperaturaMinima){
+// 			temperaturaMinima = temperatura;
+// 			paisMenosTemperatura = pais;
+// 		}
+// 	}
 
 
-}
-	document.write(`<br>La cantidad de temperaturas pares son ${temperaturasPares}`)
-	document.write(`<br>El nombre del pais con menos habitantes ${nombrePaisMenosHabitantes}`)
-	document.write(`<br>la cantidad de paises de america que tienen menos de 0 grados son ${acumuladorPaisAmerica}`)
-	 document.write(`<br>nombre del pais con menos temperatura : ${paisMenosTemperatura} y su temperatura es ${temperaturaMinima}`)
-	// document.write()
+// }
+// 	document.write(`<br>La cantidad de temperaturas pares son ${temperaturasPares}`)
+// 	document.write(`<br>El nombre del pais con menos habitantes ${nombrePaisMenosHabitantes}`)
+// 	document.write(`<br>la cantidad de paises de america que tienen menos de 0 grados son ${acumuladorPaisAmerica}`)
+// 	 document.write(`<br>nombre del pais con menos temperatura : ${paisMenosTemperatura} y su temperatura es ${temperaturaMinima}`)
+// 	// document.write()
 
 	
-}
+// }
 
 
 

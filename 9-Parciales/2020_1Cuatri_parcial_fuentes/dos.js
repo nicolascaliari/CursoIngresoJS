@@ -28,9 +28,7 @@ function mostrar()
   continuar = true;
   let promedio;
 
-  // let unidadesProgramacion = 0;
-  // let unidadesPsicologia = 0;
-  // let unidadesDiseño = 0;
+
   let acumuladorProgramacion = 0;
   let acumuladorPsicologia = 0;
   let acumuladorDiseño = 0;

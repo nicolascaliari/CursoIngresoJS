@@ -1,122 +1,93 @@
-function mostrar()
-{
-	let nombre;
-	let edad;
-	let asientosReservar;
-	let cantidadKilometros;
-	let destino;
-	let precioPorAsiento;
-	let continuar;
-	let flag;
-	let descuento = 0;
-	let aumento = 0;
-	let precioFinalDescuento;
-	let precioFinalAumento;
-	let totalBruto;
-	let promedioEdad;
+/*
+
+3)Una distribuidora de bebidas llena 5 comiones con sus productos y necesita guardar ciertos datos de cada una:
+-Nombre del conductor
+-Cantidad de litros de agua transportada($100 el litro)
+-Cantidad de litros de gaseosa transportada ($150 el litro)
+-Cantidad de litros de cerveza transportada ($200 el litro)
+Y debemos mostrar que tipo de bebida se transportó en mayor cantidad (cerveza,agua o gaseosa)
+Además se pide un total de facturación que estará dado por cada litro de gaseosa vendida a $150,
+cada litro de agua a $100 y cada litro de cerveza a $200.
+
+*/
+
+function mostrar(){
+    let tipoBebida;
+    let cantidadLitros;
+    let masCantidad;
+    let nombreConductor;
+    let i;
+    let total = 0;
+    let totalAgua = 0;
+    let totalGaseosa = 0;
+    let totalCeveza = 0;
+
+    let cantidadAgua;
+    let cantidadGaseosa;
+    let cantidadCerveza;
+
+    precioAgua = 100;
+    precioGaseosa = 150;
+    precioCerveza = 200;
 
 
-	continuar = true;
-	flag = true;
-	
-
-
-	let acumuladorPrecioBruto = 0;
-	let acumuladorAsientos = 0;
-	let acumuladorEdad = 0;
-	let contadorEdad = 0;
-
-
-	while(continuar) {
-
-		nombre = prompt("Ingrese su nombre ");
-
-		edad = prompt("Ingrese su edad ");
-		edad = parseInt(edad);
-		while(edad < 13 || edad > 85){
-			edad = prompt("ERROR, reingrese su edad ");
-			edad = parseInt(edad);
-		}
-
-		asientosReservar = prompt("Ingrese la cantidad de asientos para reservar ");
-		asientosReservar = parseInt(asientosReservar);
-		while(asientosReservar < 1 || asientosReservar > 5) {
-			asientosReservar = prompt("ERROR, reingrese la cantidad de asientos para reservar ");
-			asientosReservar = parseInt(asientosReservar);	
-		}
-		cantidadKilometros = prompt("Ingrese la cantidad de kilometros de viaje 3000-18000 ");
-		cantidadKilometros = parseInt(cantidadKilometros);
-		while(cantidadKilometros < 3000 || cantidadKilometros > 18000) {
-			cantidadKilometros = prompt("ERROR, reingrese la cantidad de kilometros de viaje ");
-			cantidadKilometros = parseInt(cantidadKilometros);
-		}
-		destino = prompt("Ingrese el destino al que quiere viajar: rio de janeiro, italia, cancun, japon ");
-		while(destino!= "rio de janeiro" && destino!= "italia" && destino!= "cancun" && destino!="japon") {
-			destino = prompt("ERROR, reingrese el destino al que quiere viajar: rio de janeiro, italia, cancun, japon ");	
-		}
-
-		continuar = confirm("Desea continuar?");
+    let acumuladorAgua = 0;
+    let acumuladorGaseosa = 0;
+    let acumuladorCerveza = 0;
 
 
 
-		switch(destino){
-			case "rio de janeiro":
-				if(asientosReservar == 1){
-					descuento = 20;
-				}else if(asientosReservar == 2 || asientosReservar == 3){
-					descuento = 25;
-				}else{
-					descuento = 30;
-				}
-				break;
-			case "cancun":
-				if(asientosReservar == 1){
-					descuento = 15;
-				}else if(asientosReservar == 2 || asientosReservar == 3){
-					descuento = 20;
-				}else{
-					descuento = 25;
-				}
-				break;
-			case "italia":
-				if(asientosReservar == 1){
-					aumento = 15;
-				}else if(asientosReservar == 2 || asientosReservar == 3){
-					aumento = 10;
-				}else{
-					aumento = 5;
-				}
-				break;
-			case "japon":
-				if(asientosReservar == 1){
-					aumento = 30;
-				}else if(asientosReservar == 2 || asientosReservar == 3){
-					aumento = 25;
-				}else{
-					aumento = 20;
-				}
-				break;
-		}
+    for(i = 0 ; i < 3 ; i++){
 
-precioPorAsiento = 1500;
+        nombreConductor = prompt("Ingrese el nombre del conductor ");
+        while(isNaN(nombreConductor) == false){
+            nombreConductor = prompt("ERROR, Ingrese el nombre del conductor ");
+        }
 
-acumuladorPrecioBruto += precioPorAsiento * asientosReservar;
-acumuladorAsientos += asientosReservar;
-
-precioFinalDescuento = acumuladorPrecioBruto - (acumuladorPrecioBruto * descuento) / 100;
-precioFinalAumento = acumuladorPrecioBruto + (acumuladorPrecioBruto * aumento) / 100;
+        cantidadAgua = prompt("Ingrese los litros de agua");
+        cantidadAgua = parseInt(cantidadAgua);
+        while(cantidadAgua < 0){
+            cantidadAgua = prompt("ERROR, Ingrese los litros de agua");
+            cantidadAgua = parseInt(cantidadAgua);
+        }
+       
 
 
-contadorEdad++;
-acumuladorEdad += edad;
+        cantidadGaseosa = prompt("Ingrese los litros de gaseosa ");
+        cantidadGaseosa = parseInt(cantidadGaseosa);
+        while(cantidadGaseosa < 0){
+            cantidadGaseosa = prompt("ERROR, Ingrese los litros de gaseosa ");
+            cantidadGaseosa = parseInt(cantidadGaseosa);
+        }
+       
 
-}
+        cantidadCerveza = prompt("Ingrese los litros de cerveza");
+        cantidadCerveza = parseInt(cantidadCerveza);
+        while(cantidadCerveza < 0){
+            cantidadCerveza = prompt("ERROR, Ingrese los litros de cerveza");
+            cantidadCerveza = parseInt(cantidadCerveza);
+        }
+        acumuladorAgua+= cantidadAgua;
+        acumuladorGaseosa+= cantidadGaseosa;
+        acumuladorCerveza+= cantidadCerveza;
 
-promedioEdad = acumuladorEdad / contadorEdad;
+    
+    }
+    if(acumuladorAgua > acumuladorGaseosa && acumuladorAgua > acumuladorCerveza){
+        masCantidad = "agua";
+    }else if(acumuladorGaseosa > acumuladorCerveza){
+        masCantidad = "gaseosa";
+    }else {
+        masCantidad = "cerveza"
+    }
 
-	document.write(`<br> El precio final con descuento es: ${precioFinalDescuento}`);
-	document.write(`<br> El precio final con aumento es: ${precioFinalAumento}`);
-	document.write(`<br>El precio bruto es: ${acumuladorPrecioBruto}`);
-	document.write(`<br> el promedio de las edades es de : ${promedioEdad.toFixed(2)}`);
-	document.write(`<br>La cantidad de asientos reservados son: ${acumuladorAsientos}`);
+    
+    totalAgua+= acumuladorAgua * precioAgua;
+    totalGaseosa+= acumuladorGaseosa * precioGaseosa;
+    totalCeveza+= acumuladorCerveza * precioCerveza;
+
+    total = totalAgua + totalGaseosa + totalCeveza;
+
+    document.write(`<br>tipo de bebida se transportó en mayor cantidad ${masCantidad}`);
+    document.write(`<br>El total es  ${total}`);
 }

@@ -1,5 +1,137 @@
 /*
 
+2)Se deberán ingresar alumnos ingresantes al sistema de 5 divisiones (,A B, C, D, E) del primer cuatrimestre.
+El primer ingreso corresponderá a la división A, el segundo a la división B y así hasta que el quinto ingreso
+corresponderá a la división E.
+El sistema pedirá los siguientes datos por división:
+-Cantidad de aspirantes a ingresar (20 a 80)
+-Nombre del docente a cargo de programación de la división en cuestión ("Pedro, Marcelo o Mariana").
+-Nombre del docente a cargo de matemáticas de la división en cuestión ("Macarena, Cristian o Florencia").
+-Nombre del docente a cargo de inglés de la división en cuestión ("Estefania o Rodrigo").
+Se informará:
+Cuantos alumnos quedarán sin vacante teniendo en cuenta que entre las 5 divisiones ingresan 200 alumnos en total.
+Que profesor de programación recibió la mayor cantidad de aspirantes.
+Cuantas divisiones obtuvo Estefania (la profesora de inglés) y cuantos aspirantes se postularon para cursar
+con ella entre todas las divisiones.
+
+*/
+
+
+function mostrar() {
+let divisiones;
+let cantidadAspirantes;
+let nombreProgramacion;
+let nombreMatematica;
+let nombreIngles;
+let sinVacantes;
+
+let acumuladorAspirantes = 0;
+let mayorCantidadAspirante;
+let nombreProfesorMayor;
+let flag;
+
+let contadorDivisionEstefania = 0;
+let acumuladorAspirantesEstefania= 0;
+
+flag = true;
+
+
+  for(i=0 ; i < 5 ; i++){
+
+    divisiones = prompt("Ingrese su division a,b,c,d,e");
+    while(divisiones!="a" && divisiones!="b" && divisiones!="c" && divisiones!="d" && divisiones!="e"){
+      divisiones = prompt("ERROR, Ingrese su division a,b,c,d,e");
+    }
+
+    cantidadAspirantes = prompt("Ingrese la cantidad de aspirantes ");
+    cantidadAspirantes = parseInt(cantidadAspirantes);
+    while(isNaN(cantidadAspirantes) || cantidadAspirantes < 20 || cantidadAspirantes > 80){
+      cantidadAspirantes = prompt("ERROR, Ingrese la cantidad de aspirantes ");
+      cantidadAspirantes = parseInt(cantidadAspirantes);
+    }
+
+    nombreProgramacion = prompt("Ingrese nombre del profe de programacion pedro, marcelo o mariana");
+    while(isNaN(nombreProgramacion) == false || nombreProgramacion!="pedro" && nombreProgramacion!="marcelo" && nombreProgramacion!="mariana"){
+      nombreProgramacion = prompt("ERROR, Ingrese nombre del profe de programacion pedro, marcelo o mariana");
+    }
+
+    nombreMatematica = prompt("Ingrese nombre del profe de matematica macarena, cristian o florencia");
+    while(isNaN(nombreMatematica) == false || nombreMatematica!="macarena" && nombreMatematica!="cristian" && nombreMatematica!="florencia"){
+      nombreMatematica = prompt("ERROR, Ingrese nombre del profe de matematica macarena, cristian o florencia");
+    }
+
+    nombreIngles = prompt("Ingrese nombre del profe de ingles estefania o rodrigo");
+    while(isNaN(nombreIngles) == false || nombreIngles!="estefania" && nombreIngles!="rodrigo"){
+      nombreIngles = prompt("ERROR, Ingrese nombre del profe de ingles estefania o rodrigo ");
+    }
+
+
+    acumuladorAspirantes+= cantidadAspirantes;
+
+    if(flag == true ) {
+      mayorCantidadAspirante = cantidadAspirantes;
+      nombreProfesorMayor = nombreProgramacion;
+      
+  
+      flag = false;
+    } else {
+  
+    if(cantidadAspirantes > mayorCantidadAspirante) {
+      mayorCantidadAspirante = cantidadAspirantes;
+      nombreProfesorMayor = nombreProgramacion;
+    }
+  }
+
+  if(nombreIngles == "estefania") {
+    contadorDivisionEstefania++;
+    acumuladorAspirantesEstefania+= cantidadAspirantes;
+  }
+
+
+  }
+
+  if(acumuladorAspirantes > 200) {
+   sinVacantes =  acumuladorAspirantes - 200;
+  }else {
+   sinVacantes = "Nadie quedo afuera"
+  }
+
+
+
+    document.write(`<br>Cuantos alumnos quedarán sin vacante ${sinVacantes}`);
+    document.write(`<br>Que profesor de programación recibió la mayor cantidad de aspirantes.${nombreProfesorMayor}`);
+    document.write(`<br>Cuantas divisiones obtuvo Estefania ${contadorDivisionEstefania} y cuantos aspirantes se postularon para cursar
+    con ella entre todas las divisiones ${acumuladorAspirantesEstefania} `)
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 2)Se requiere el ingreso de datos para un video juego de pokemon en línea hasta que el usuario quiera:
 -Necesitaremos: nombre del jugador/a
 -Género (validar M/F/X)
@@ -10,100 +142,129 @@ El nombre y el pokemon elegido del jugador más grande de edad y del jugador má
 
 */
 
-function mostrar() {
-  let nombreJugador;
-  let genero;
-  let edad;
-  let pokemonInicial;
-  let promedio;
-  let flag;
-  let edadMayor;
-  let edadMenor;
-  let nombreMayor;
-  let nombreMenor;
-  let pokemonMayor;
-  let pokemonMenor;
+// function mostrar() {
+//   let nombreJugador;
+//   let genero;
+//   let edad;
+//   let pokemonInicial;
+//   let promedio;
+//   let flag;
+//   let edadMayor;
+//   let edadMenor;
+//   let nombreMayor;
+//   let nombreMenor;
+//   let pokemonMayor;
+//   let pokemonMenor;
 
-  let continuar;
+//   let continuar;
 
-  let contadorEdad = 0;
-  let acumuladorEdad = 0;
+//   let contadorEdad = 0;
+//   let acumuladorEdad = 0;
 
-  flag = true;
-  continuar = true;
+//   flag = true;
+//   continuar = true;
 
-  while (continuar) {
-    nombreJugador = prompt("Ingrese nombre de jugador ");
-    while (isNaN(nombreJugador) == false) {
-      nombreJugador = prompt("ERROR, Ingrese nombre de jugador ");
-    }
+//   while (continuar) {
+//     nombreJugador = prompt("Ingrese nombre de jugador ");
+//     while (isNaN(nombreJugador) == false) {
+//       nombreJugador = prompt("ERROR, Ingrese nombre de jugador ");
+//     }
 
-    genero = prompt("Ingrese su genero m/f/x").toLowerCase();
-    while (genero != "m" && genero != "f" && genero != "x") {
-      genero = prompt("ERROR, Ingrese su genero m/f/x").toLowerCase();
-    }
+//     genero = prompt("Ingrese su genero m/f/x").toLowerCase();
+//     while (genero != "m" && genero != "f" && genero != "x") {
+//       genero = prompt("ERROR, Ingrese su genero m/f/x").toLowerCase();
+//     }
 
-    edad = prompt("Ingrese su edad");
-    edad = parseInt(edad);
-    while (isNaN(edad) || edad < 3 || edad > 99) {
-      edad = prompt("ERROR, Ingrese su edad");
-      edad = parseInt(edad);
-    }
+//     edad = prompt("Ingrese su edad");
+//     edad = parseInt(edad);
+//     while (isNaN(edad) || edad < 3 || edad > 99) {
+//       edad = prompt("ERROR, Ingrese su edad");
+//       edad = parseInt(edad);
+//     }
 
-    pokemonInicial = prompt(
-      "Ingrese pokemon inicial Charmander/Squirtle/Bolbasaur"
-    );
-    while (
-      pokemonInicial != "Charmander" &&
-      pokemonInicial != "Squirtle" &&
-      pokemonInicial != "Bolbasaur"
-    ) {
-      pokemonInicial = prompt(
-        "ERROR, Ingrese pokemon inicial Charmander/Squirtle/Bolbasaur"
-      );
-    }
+//     pokemonInicial = prompt(
+//       "Ingrese pokemon inicial Charmander/Squirtle/Bolbasaur"
+//     );
+//     while (
+//       pokemonInicial != "Charmander" &&
+//       pokemonInicial != "Squirtle" &&
+//       pokemonInicial != "Bolbasaur"
+//     ) {
+//       pokemonInicial = prompt(
+//         "ERROR, Ingrese pokemon inicial Charmander/Squirtle/Bolbasaur"
+//       );
+//     }
 
-    contadorEdad++;
-    acumuladorEdad += edad;
+//     contadorEdad++;
+//     acumuladorEdad += edad;
 
-    if (flag == true) {
-      edadMayor = edad;
-      edadMenor = edad;
-      nombreMayor = nombreJugador;
-      nombreMenor = nombreJugador;
-      pokemonMayor = pokemonInicial;
-      pokemonMenor = pokemonInicial;
 
-      flag = false;
-    }else {
+//     if(flag == true)
+//     {
+//       flag = false;
 
-    if (edad > edadMayor) {
-      edadMayor = edad;
-      nombreMayor = nombreJugador;
-      pokemonMayor = pokemonInicial;
-    } else if (edad < edadMenor) {
-      edadMenor = edad;
-      nombreMenor = nombreJugador;
-      pokemonMenor = pokemonInicial;
-    }
+//       edadMayor = edad;
+//       edadMenor = edad;
+//       nombreMayor = nombreJugador;
+//       nombreMenor = nombreJugador;
+//       pokemonMayor = pokemonInicial;
+//       pokemonMenor = pokemonInicial;
+//     }else
+//     {
+//       if(edad > edadMayor)
+//       {
+//         edadMayor = edad;
+//         nombreMayor = nombreJugador;
+//         pokemonMayor = pokemonInicial;
+//       }else
+//       {
+//         if(edad < edadMenor)
+//         {
+//           edadMenor = edad;
+//           nombreMenor = nombreJugador;
+//           pokemonMenor = pokemonInicial;
+//         }
+//       }
+//     }
 
-  }
+  //   if (flag == true) {
+  //     edadMayor = edad;
+  //     edadMenor = edad;
+  //     nombreMayor = nombreJugador;
+  //     nombreMenor = nombreJugador;
+  //     pokemonMayor = pokemonInicial;
+  //     pokemonMenor = pokemonInicial;
 
-    continuar = confirm("Desea continuar?");
-  }
+  //     flag = false;
+  //   }else {
 
-  promedio = acumuladorEdad / contadorEdad;
+  //   if (edad > edadMayor) {
+  //     edadMayor = edad;
+  //     nombreMayor = nombreJugador;
+  //     pokemonMayor = pokemonInicial;
+  //   } else if (edad < edadMenor) {
+  //     edadMenor = edad;
+  //     nombreMenor = nombreJugador;
+  //     pokemonMenor = pokemonInicial;
+  //   }
 
-  document.write(
-    `<br> el promedio de edad de los jugadores ingresados ${promedio}`
-  );
-  document.write(
-    `<br> edad mayor, su nombre es : ${nombreMayor} y su pokemon es ${pokemonMayor}`
-  );
-  document.write(
-    `<br> edad menor, su nombre es : ${nombreMenor} y su pokemon es ${pokemonMenor}`
-  );
-}
+  // }
+
+//     continuar = confirm("Desea continuar?");
+//   }
+
+//   promedio = acumuladorEdad / contadorEdad;
+
+//   document.write(
+//     `<br> el promedio de edad de los jugadores ingresados ${promedio}`
+//   );
+//   document.write(
+//     `<br> edad mayor, su nombre es : ${nombreMayor} y su pokemon es ${pokemonMayor}`
+//   );
+//   document.write(
+//     `<br> edad menor, su nombre es : ${nombreMenor} y su pokemon es ${pokemonMenor}`
+//   );
+// }
 
 
 
